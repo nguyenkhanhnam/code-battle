@@ -16,7 +16,7 @@ def run_test():
 
     # Load a sample game state from a real game
     try:
-        with open('tests/sample_game_state.json', 'r') as f:
+        with open('python/tests/sample_game_state.json', 'r') as f:
             game_state = json.load(f)
     except FileNotFoundError:
         print("ERROR: `tests/sample_game_state.json` not found. Cannot run test.")
