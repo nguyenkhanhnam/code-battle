@@ -1,0 +1,25 @@
+{
+  "game": { "id": "test-game", "ruleset": { "name": "standard" }, "timeout": 500 },
+  "turn": 15,
+  "board": {
+    "height": 11, "width": 11,
+    "food": [ { "x": 5, "y": 5 }, { "x": 8, "y": 2 } ],
+    "snakes": [
+      {
+        "id": "you", "name": "MyBot", "latency": "123", "health": 85,
+        "body": [ { "x": 1, "y": 3 }, { "x": 1, "y": 2 }, { "x": 1, "y": 1 } ],
+        "head": { "x": 1, "y": 3 }, "length": 3, "shout": "Going left!"
+      },
+      {
+        "id": "opponent-1", "name": "Opponent", "latency": "456", "health": 92,
+        "body": [ { "x": 7, "y": 5 }, { "x": 7, "y": 6 }, { "x": 7, "y": 7 } ],
+        "head": { "x": 7, "y": 5 }, "length": 3, "shout": ""
+      }
+    ]
+  },
+  "you": {
+    "id": "you", "name": "MyBot", "latency": "123", "health": 85,
+    "body": [ { "x": 1, "y": 3 }, { "x": 1, "y": 2 }, { "x": 1, "y": 1 } ],
+    "head": { "x": 1, "y": 3 }, "length": 3, "shout": "Going left!"
+  }
+}

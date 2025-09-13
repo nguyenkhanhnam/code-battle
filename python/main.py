@@ -1,14 +1,22 @@
 import os
 import argparse
 import importlib
-from flask import Flask, request
+import json
+import sys
+from flask import Flask, request, jsonify
 
-# --- Dynamically Load Strategy ---
+# --- Command Line Arguments ---
 parser = argparse.ArgumentParser(description="Run a Code Battle Bot.")
 parser.add_argument(
     "--strategy",
-    required=True,
+    default="battlesnake_ultimate",
     help="The name of the strategy file to use (e.g., 'battlesnake_ultimate')."
+)
+parser.add_argument(
+    "--port",
+    type=int,
+    default=8080,
+    help="Port to run the bot on (default: 8080)."
 )
 args = parser.parse_args()
 
@@ -29,7 +37,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return strategy_instance.get_info()
+    return jsonify(strategy_instance.get_info())
 
 @app.route("/ping")
 def ping():
@@ -50,6 +58,6 @@ def end():
     return "ok"
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "8080"))
+    port = int(os.environ.get("PORT", args.port))
     app.run(host="0.0.0.0", port=port, debug=False)
 

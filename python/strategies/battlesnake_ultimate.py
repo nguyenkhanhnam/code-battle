@@ -12,12 +12,16 @@ class Strategy(AbstractStrategy):
         return {"apiversion": "1", "author": "UltimateBot", "color": "#FFFFFF", "head": "all-seeing", "tail": "ghost"}
 
     def on_game_move(self, game_state: dict) -> dict:
-        _, best_move = expectimax(
-            game_state=game_state, depth=self.SEARCH_DEPTH, is_maximizing_player=True,
-            evaluate_func=self._evaluate_heuristic, get_children_func=self._get_children
-        )
-        print(f"Turn {game_state['turn']}: ULTIMATE - Best move is {best_move.upper() if best_move else 'UP'}")
-        return {"move": best_move if best_move else "up"}
+        print(f"Turn")
+        
+        return {"apiversion": "1", "author": "UltimateBot", "color": "#FFFFFF", "head": "all-seeing", "tail": "ghost"}
+        
+        # _, best_move = expectimax(
+        #     game_state=game_state, depth=self.SEARCH_DEPTH, is_maximizing_player=True,
+        #     evaluate_func=self._evaluate_heuristic, get_children_func=self._get_children
+        # )
+        # print(f"Turn {game_state['turn']}: ULTIMATE - Best move is {best_move.upper() if best_move else 'UP'}")
+        # return {"move": best_move if best_move else "up"}
 
     def _evaluate_heuristic(self, game_state: dict) -> float:
         my_snake = game_state['you']
